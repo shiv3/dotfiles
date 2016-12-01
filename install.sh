@@ -2,7 +2,7 @@
 
 for f in .??*
 do
-    ln -s $f ~/$f
+    cp  $f ~/$f
     echo "ln -s $f ~/$f"
 done
 
