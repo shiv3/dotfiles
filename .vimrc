@@ -1,6 +1,6 @@
 set number
 set cursorline
-set cursorcolmn
+set cursorcolumn
 set virtualedit=onemore
 set smartindent
 set visualbell
@@ -12,29 +12,21 @@ nnoremap j gj
 nnoremap k gk
 
 
-" 文字コード
-set fenc=utf-8
-" バックアップファイル作らない
+
+set fenc=utf-8     "文字コードの設定
+set nobackup       "バックアップファイル作らない
+set noswapfile     "スワップファイルなし
+set autoread       "編集中のファイル => 自動で読み直す
+set showcmd        "入力中コマンドを表示
+
+set laststatus=2   "ステータス行を常に表示↲
+set cmdheight=2    "メッセージ表示欄を2行確保↲
+set showmatch      "対応する括弧を強調表示↲
+set helpheight=999 "ヘルプを画面いっぱいに↲
+set list listchars=tab:\▸\- "不可視文字を表示↲
+set tabstop=4
+
+set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ " 不可視文字の表示記号指定↲
+
 set nobackup
-" スワップファイルなし
 set noswapfile
-" 編集中のファイル => 自動で読み直す
-set autoread
-" 入力中コマンドを表示
-set showcmd
-
-
-syntax on↲
-↲
-set number↲
-set laststatus=2   " ステータス行を常に表示↲
-set cmdheight=2    " メッセージ表示欄を2行確保↲
-set showmatch      " 対応する括弧を強調表示↲
-set helpheight=999 " ヘルプを画面いっぱいに開く↲
-set list           " 不可視文字を表示↲
-set tabstop=4↲
-" 不可視文字の表示記号指定↲
-set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮↲
-↲
-set nobackup↲
-set noswapfile↲
