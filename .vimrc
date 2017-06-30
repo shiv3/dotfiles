@@ -1,6 +1,4 @@
 set number
-set cursorline
-set cursorcolumn
 set virtualedit=onemore
 set smartindent
 set visualbell
@@ -30,3 +28,19 @@ set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ " 不可視文字の表
 
 set nobackup
 set noswapfile
+
+
+"---- カラースキーマ --------
+syntax on
+
+" ------molokai-------
+" colorscheme molokai
+" let g:molokai_original = 1
+" let g:rehash256 = 1
+" set background=dark
+
+
+" ------moonfly--------
+colorscheme moonfly
+let g:moonflyCursorLineNr = 0
+set background=dark
