@@ -1,5 +1,3 @@
-[core]
-	excludesfile = /Users/tshibaza/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -171,7 +169,5 @@
 	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 [user]
-	name = tshibaza
-	email = tshibaza@yahoo-corp.jp
-[hub]
-    host = git.corp.yahoo.co.jp↲
+	name = shiv3
+	email = lailaiskyn@gmail.com
