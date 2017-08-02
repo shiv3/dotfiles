@@ -5,6 +5,9 @@ set showmatch
 set laststatus=2
 set wildmode=list:longest
 
+"sudorじゃなかった場合に保存するやつ
+cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
+
 nnoremap j gj
 nnoremap k gk
 

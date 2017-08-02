@@ -4,5 +4,5 @@ ln -sf ~/dotfiles/.vim/colors ~/.vim/colors
 
 
 ln -sf ~/dotfiles/.basrc ~/.bashrc
-
+source ~/.bashrc
 
