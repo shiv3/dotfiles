@@ -173,3 +173,5 @@
 [user]
 	name = tshibaza
 	email = tshibaza@yahoo-corp.jp
+[hub]
+    host = git.corp.yahoo.co.jp↲
