@@ -1,84 +1,106 @@
-" ------------------------------------
-" colorscheme
-" ------------------------------------
+set number
+set virtualedit=onemore
+set visualbell
+set showmatch
+set laststatus=2
+set wildmode=list:longest
+
+"sudorじゃなかった場合に保存するやつ
+cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
+
+nnoremap j gj
+nnoremap k gk
+
+
+" ----- インデントとかの設定 ------
+set expandtab      "タブ入力を複数の空白入力に
+set tabstop=2      "画面上でタブ文字が占める幅
+set shiftwidth=2   "自動インデントでずれる幅
+set softtabstop=2  "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set autoindent     "改行時に前の行のインデントを継続
+set smartindent    "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+" --------------------------------
+
+
+set fenc=utf-8     "文字コードの設定
+set nobackup       "バックアップファイル作らない
+set noswapfile     "スワップファイルなし
+set autoread       "編集中のファイル => 自動で読み直す
+set showcmd        "入力中コマンドを表示
+
+set laststatus=2   "ステータス行を常に表示↲
+set cmdheight=2    "メッセージ表示欄を2行確保↲
+set showmatch      "対応する括弧を強調表示↲
+set helpheight=999 "ヘルプを画面いっぱいに↲
+set list listchars=tab:\▸\- "不可視文字を表示↲
+set tabstop=4
+
+set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ " 不可視文字の表示記号指定↲
+
+set nobackup
+set noswapfile
+
+
+"---- カラースキーマ --------
 syntax on
+
+" ------molokai-------
 " colorscheme molokai
-
-" iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため
-highlight Normal ctermbg=none
-
-
+" let g:molokai_original = 1
+" let g:rehash256 = 1
+" set background=dark
 
 
+" ------moonfly--------
+colorscheme moonfly
+let g:moonflyCursorLineNr = 0
+set background=dark
 
-set nocompatible
 
-" 画面表示の設定
 
-set number         " 行番号を表示する
-"set cursorline     " カーソル行の背景色を変える
-"set cursorcolumn   " カーソル位置のカラムの背景色を変える
-set laststatus=2   " ステータス行を常に表示
-set cmdheight=2    " メッセージ表示欄を2行確保
-set showmatch      " 対応する括弧を強調表示
-set helpheight=999 " ヘルプを画面いっぱいに開く
-set list           " 不可視文字を表示
-" 不可視文字の表示記号指定
-set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
 
-" カーソル移動関連の設定
 
-set backspace=indent,eol,start " Backspaceキーの影響範囲に制限を設けない
-set whichwrap=b,s,h,l,<,>,[,]  " 行頭行末の左右移動で行をまたぐ
-set scrolloff=8                " 上下8行の視界を確保
-set sidescrolloff=16           " 左右スクロール時の視界を確保
-set sidescroll=1               " 左右スクロールは一文字づつ行う
 
-" ファイル処理関連の設定
 
-set confirm    " 保存されていないファイルがあるときは終了前に保存確認
-set hidden     " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
-set autoread   "外部でファイルに変更がされた場合は読みなおす
-set nobackup   " ファイル保存時にバックアップファイルを作らない
-set noswapfile " ファイル編集中にスワップファイルを作らない
 
-" 検索/置換の設定
+"-------------Neo Bundle------------
+"NeoBundle Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-set hlsearch   " 検索文字列をハイライトする
-set incsearch  " インクリメンタルサーチを行う
-set ignorecase " 大文字と小文字を区別しない
-set smartcase  " 大文字と小文字が混在した言葉で検索を行った場合に限り、大文字と小文字を区別する
-set wrapscan   " 最後尾まで検索を終えたら次の検索で先頭に移る
-set gdefault   " 置換の時 g オプションをデフォルトで有効にする
+" Required:
+set runtimepath+=/Users/tshibaza/.vim/bundle/neobundle.vim/
 
-" タブ/インデントの設定
+" Required:
+call neobundle#begin(expand('/Users/tshibaza/.vim/bundle'))
 
-set expandtab     " タブ入力を複数の空白入力に置き換える
-set tabstop=2     " 画面上でタブ文字が占める幅
-set shiftwidth=2  " 自動インデントでずれる幅
-set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set autoindent    " 改行時に前の行のインデントを継続する
-set smartindent   " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-" 動作環境との統合関連の設定
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
 
-" OSのクリップボードをレジスタ指定無しで Yank, Put 出来るようにする
-set clipboard=unnamed,unnamedplus
-" マウスの入力を受け付ける
-set mouse=a
-" Windows でもパスの区切り文字を / にする
-set shellslash
-" インサートモードから抜けると自動的にIMEをオフにする
+NeoBundle 'fatih/vim-go'
 
-" コマンドラインの設定
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
-" コマンドラインモードでTABキーによるファイル名補完を有効にする
-set wildmenu wildmode=list:longest,full
-" コマンドラインの履歴を10000件保存する
-set history=10000
+" Required:
+call neobundle#end()
 
-" ビープの設定
+" Required:
+filetype plugin indent on
 
-"ビープ音すべてを無効にする
-set visualbell t_vb=
-set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+"---------------Neo Bundle Plugins
+
+
