@@ -35,72 +35,7 @@ set helpheight=999 "ヘルプを画面いっぱいに↲
 set list listchars=tab:\▸\- "不可視文字を表示↲
 set tabstop=4
 
-set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ " 不可視文字の表示記号指定↲
+"set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ " 不可視文字の表示記号指定↲
 
 set nobackup
 set noswapfile
-
-
-"---- カラースキーマ --------
-syntax on
-
-" ------molokai-------
-" colorscheme molokai
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-" set background=dark
-
-
-" ------moonfly--------
-colorscheme moonfly
-let g:moonflyCursorLineNr = 0
-set background=dark
-
-
-
-
-
-
-
-
-"-------------Neo Bundle------------
-"NeoBundle Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=/Users/tshibaza/.vim/bundle/neobundle.vim/
-
-" Required:
-call neobundle#begin(expand('/Users/tshibaza/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-
-NeoBundle 'fatih/vim-go'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
-" Required:
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
-"---------------Neo Bundle Plugins
-
-
