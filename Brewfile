@@ -14,6 +14,7 @@ cask 'xquartz'
 cask 'the-unarchiver'
 cask 'cyberduck'
 cask 'java'
+cask 'hyper'
 
 mas "Slack", id: 803453959
 

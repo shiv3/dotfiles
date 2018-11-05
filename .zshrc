@@ -4,6 +4,11 @@ if [ $DOTFILES/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
 fi
 
+#---------------
+# 文字コード修正
+
+export LANG=ja_JP.UTF-8
+
 #----------------------------------------------------------------
 # Alias
 
@@ -36,6 +41,11 @@ alias pasterpng="pngpaste /tmp/paste.png  && cat /tmp/paste.png | goster -r"
 alias intellij="/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea &"
 alias bandle=bandler
 
+#-------------
+# rmコマンドをゴミ箱移動へ変更
+
+alias rm=rmtrash
+
 #-----
 #from secret
 
@@ -43,6 +53,10 @@ alias bandle=bandler
 
 #-----------------------------------------------------------------
 # env path
+
+# my bin
+
+export PATH=$PATH:~/dotfiles/bin/
 
 # goenv
 export GOENV_ROOT=$HOME/.goenv
@@ -64,4 +78,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
-
