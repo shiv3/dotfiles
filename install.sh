@@ -2,6 +2,7 @@
 ln ~/dotfiles/.vimrc ~/.vimrc
 ln ~/dotfiles/.gvimrc ~/.gvimrc
 ln ~/dotfiles/.vim ~/.vim
+ln ~/dotfiles/.gitconfig ~/.gitconfig
 
 ln ~/dotfiles/.zshrc ~/.zshrc
 ln ~/dotfiles/.bashrc ~/.bashrc
@@ -48,3 +49,8 @@ PYTHON_CONFIGURE_OPTS=--enable-unicode=ucs2
 pyenv install --list | grep -E "^ *3.*" | grep -v "dev" |  tail -n 1 | xargs pyenv install
 # global を最新python3に設定
 pyenv versions | tail -n 1 | xargs pyenv global
+
+## rust
+curl https://sh.rustup.rs -sSf | sh
+
+source $HOME/.cargo/env

@@ -16,6 +16,8 @@ cask 'cyberduck'
 cask 'java'
 cask 'hyper'
 cask 'macdown'
+cask 'docker'
+cask 'wireshark'
 
 mas "Slack", id: 803453959
 mas "Xcode", id: 497799835
@@ -36,3 +38,9 @@ brew "goenv"
 brew "peco"
 brew "jq"
 brew "nkf"
+brew 'imagemagick@6'
+brew 'wget'
+brew 'exiftool'
+brew 'foremost'
+brew 'docker'
+brew 'yarn'
