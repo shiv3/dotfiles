@@ -44,3 +44,9 @@ brew 'exiftool'
 brew 'foremost'
 brew 'docker'
 brew 'yarn'
+
+
+# ctf
+
+brew "john"
+brew "pkcrack"

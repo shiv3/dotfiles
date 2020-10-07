@@ -1,3 +1,4 @@
+
 # zcompile
 
 if [ $DOTFILES/.zshrc -nt ~/.zshrc.zwc ]; then
@@ -21,9 +22,11 @@ export LANG=ja_JP.UTF-8
 alias cdd="cd ~/Desktop"
 alias cdo="cd ~/Downloads"
 alias cdc="cd ~/ctf"
-alias cdg="cd ~/git/github.com"
-alias cdk="cd ~/git/github.com/kakekomu/"
-alias cds="cd ~/git/github.com/shiv3/"
+alias cdg="cd ~/go/src/github.com"
+alias cda="cd ~/go/src/github.com/abema"
+alias cdm="cd ~/go/src/github.com/abema/mira"
+alias cdk="cd ~/go/src/github.com/kakekomu/"
+alias cds="cd ~/go/src/github.com/shiv3/"
 
 # ls系
 alias l="ls"
@@ -46,10 +49,15 @@ alias intellij="/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea &"
 alias bandle=bandler
 
 alias stegotools="docker run -it --rm -v $(pwd):/data dominicbreuker/stego-toolkit /bin/bash"
-alias ctfbox="docker run -it --rm -v $(pwd):/home/ctf/ boogy/ctfbox /bin/bash"
-
+alias ctfbox="docker run --privileged -it --rm -v $(pwd):/home/ctf/ boogy/ctfbox /bin/bash"
+alias ctftools="docker run -it --rm -v $(pwd):/home/ctf/questions zardus/ctf-tools /bin/bash"
 
 alias stegotools="docker run -it --rm -v $(pwd)/:/data dominicbreuker/stego-toolkit /bin/bash"
+
+alias kc="kubectl"
+
+alias gitsweep="git branch --merged | grep -vE '^\*|master$|develop$' | xargs -I _ git branch -d _"
+
 #-------------
 # rmコマンドをゴミ箱移動へ変更
 
@@ -70,20 +78,24 @@ export PATH=$PATH:~/dotfiles/bin/
 # goenv
 export GOENV_ROOT=$HOME/.goenv
 export PATH="$HOME/.goenv/shims:$PATH"
-eval "$(goenv init -)"
+#eval "$(goenv init -)"
 
 # go
 export GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(rbenv init -)"
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
+
+# n
+export N_PREFIX=$HOME/.n
+export PATH=$PATH:${N_PREFIX}/bin
+
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -111,3 +123,21 @@ source /Users/hojo/Downloads/google-cloud-sdk/path.zsh.inc
 
 ## flutter
 export PATH=$PATH:/Users/hojo/development/flutter/bin/
+
+
+## pipenv
+eval "$(pipenv --completion)"
+
+export PATH="/usr/local/opt/ncurses/bin:$PATH"
+
+# adb
+export PATH=$PATH:/Users/hojo/Library/Android/sdk/platform-tools
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH=$HOME/bin:$PATH
+
+
+# istio
+export PATH=$PATH:$HOME/.istioctl/bin
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+
